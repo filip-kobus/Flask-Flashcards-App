@@ -18,7 +18,7 @@ def my_directories():
         create_directory(directory.name)
         db.session.add(directory)
         db.session.commit()
-        return redirect(url_for('directories.directories'))
+        return redirect(url_for('directories.my_directories'))
     return render_template('directories.html', title='My Flashcards',
                            form=form, image_file=image_file, directories=directories)
 
@@ -32,4 +32,4 @@ def directory_delete(directory_id):
     except:
         flash(f'Directory is not empty!', 'danger')
 
-    return redirect(url_for('directories.directories'))
+    return redirect(url_for('directories.my_directories'))
