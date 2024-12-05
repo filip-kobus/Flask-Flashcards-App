@@ -9,7 +9,7 @@ from flashcardmaker.flashcards.vision import VisionAI
 flashcards = Blueprint('flashcards', __name__)
 
 @flashcards.route("/directories/<int:directory_id>", methods=["GET", "POST"])
-def directory(directory_id):
+def my_flashcards(directory_id):
     form = AddFlashcardForm(directory_id)
     directory = Directory.query.get_or_404(directory_id)
     directory_path = "users/" + current_user.username + "/" + directory.name + "/"
@@ -23,7 +23,7 @@ def directory(directory_id):
         flashcard = Flashcard(title=form.title.data, image_file=filename, boxes_cords=processed_image.grouped_boxes, directory_id=directory_id)
         db.session.add(flashcard)
         db.session.commit()
-    return render_template('directory.html', title=directory.name, flashcards=directory.flashcards, form=form, directory_path=directory_path, current_flashcard=None)
+    return render_template('flashcards.html', title=directory.name, flashcards=directory.flashcards, form=form, directory_path=directory_path, current_flashcard=None)
 
 
 @flashcards.route("/directories/<int:directory_id>/<int:flashcard_id>", methods=["GET", "POST"])
@@ -42,7 +42,7 @@ def flashcard(directory_id, flashcard_id):
             db.session.add(flashcard)
             db.session.commit()
 
-    return render_template('directory.html', title=directory.name, flashcards=directory.flashcards, form=form, directory_path=directory_path, current_flashcard=None)
+    return render_template('flashcards.html', title=directory.name, flashcards=directory.flashcards, form=form, directory_path=directory_path, current_flashcard=flashcard)
 
 
 @flashcards.route("/directories/<int:directory_id>/<int:flashcard_id>/delete", methods=["GET", "POST"])
