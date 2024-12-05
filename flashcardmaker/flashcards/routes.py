@@ -52,4 +52,4 @@ def flashcard_delete(directory_id, flashcard_id):
     db.session.delete(flashcard)
     db.session.commit()
 
-    return redirect(url_for('flashcards.directory', directory_id=directory_id))
+    return redirect(url_for('flashcards.my_flashcards', directory_id=directory_id))

@@ -5,14 +5,14 @@
     <article class="media content-section">
         <div class="media-body row align-items-center">
             <div class="col-auto">
-                <a class="article-title" href="{{ url_for('flashcards.directory', directory_id=directory.id) }}">
+                <a class="article-title" href="{{ url_for('flashcards.my_flashcards', directory_id=directory.id) }}">
                 <img class="dir-img img-fluid" src="{{ image_file }}" alt="Flashcard Image">
             </a>
         </div>
     
         <div class="col text-start ps-3">
             <h2 class="mb-0">
-                <a class="article-title text-decoration-none text-dark" href="{{ url_for('flashcards.directory', directory_id=directory.id) }}">
+                <a class="article-title text-decoration-none text-dark" href="{{ url_for('flashcards.my_flashcards', directory_id=directory.id) }}">
                     {{ directory.name }}
                 </a>
             </h2>
