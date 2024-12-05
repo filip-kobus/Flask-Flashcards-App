@@ -53,7 +53,7 @@
             <div class="col-md-3 col-sm-6 mb-3">
                 <div class="card shadow-sm h-100 position-relative">
                     <form 
-                        action="{{ url_for('flashcard_delete', flashcard_id=flashcard.id, directory_id=flashcard.directory_id) }}" 
+                        action="{{ url_for('flashcards.flashcard_delete', flashcard_id=flashcard.id, directory_id=flashcard.directory_id) }}" 
                         method="POST" 
                         class="position-absolute" 
                         style="top: 10px; right: 10px;">
@@ -62,7 +62,7 @@
                         </button>
                     </form>
                     <div class="image-wrapper">
-                        <a href="{{ url_for('flashcard', flashcard_id=flashcard.id, directory_id=flashcard.directory_id) }}">
+                        <a href="{{ url_for('flashcards.flashcard', flashcard_id=flashcard.id, directory_id=flashcard.directory_id) }}">
                             <img 
                                 src="{{ url_for('static', filename=directory_path + flashcard.image_file) }}" 
                                 class="card-img-top" 
